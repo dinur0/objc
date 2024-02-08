@@ -10,7 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Circle : NSObject
+@interface Circle : Figure{
+    
+    NSInteger _radius;
+    
+}
+
+-(instancetype) initCircle: (NSInteger) radius;
+- (NSInteger)GetPerimeter;
+- (NSInteger)GetArea;
+- (void)GetFigureInfo;
 
 @end
 

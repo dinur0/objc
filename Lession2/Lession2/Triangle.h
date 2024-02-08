@@ -10,9 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Triangle : Figure
+@interface Triangle : Figure{
+    NSInteger _firstSide;
+    NSInteger _secondSide;
+    NSInteger _thirdSide;
+}
+-(instancetype) initTriangle: (NSInteger) firstSide secondSide: (NSInteger) secondSide thirdSide: (NSInteger) thirdSide;
+- (NSInteger)GetPerimeter;
+- (NSInteger)GetArea;
+- (void)GetFigureInfo;
 
-//    @property(nonatomic,strong) NSInteger *firstSide;
 
 @end
 

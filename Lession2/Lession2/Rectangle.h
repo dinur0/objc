@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (instancetype) initRectangle: (NSInteger) heigth width: (NSInteger) wigth;
+- (NSInteger)GetPerimeter;
+- (NSInteger)GetArea;
+- (void)GetFigureInfo;
     
 @end
 

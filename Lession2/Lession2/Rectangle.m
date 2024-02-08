@@ -12,8 +12,8 @@
 - (instancetype)initRectangle:(NSInteger)heigth width:(NSInteger)wigth {
     self = [super init];
     if (self){
-        _heigth = 0;
-        _width = 0;
+        _heigth = heigth;
+        _width = wigth;
     }
     return self;
 }
@@ -27,7 +27,7 @@
 }
 
 - (void)GetFigureInfo {
-    NSLog(@"heigth = %ld\n width = %ld\n area = %ld\n perimeter = %ld\n",(long)self->_heigth,(long)self->_width,(long)self.GetArea,(long)self.GetPerimeter);
+    NSLog(@"heigth = %ld\nwidth = %ld\narea = %ld\nperimeter = %ld\n",self->_heigth,self->_width,self.GetArea,self.GetPerimeter);
 }
 
 @end
