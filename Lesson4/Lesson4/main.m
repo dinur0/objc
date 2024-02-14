@@ -11,9 +11,9 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         Robot *myRobot = [Robot new];
-        [myRobot run:^(NSString *_Nonnull a) {
-            myRobot.y +=1;
-        } andDirection:@"up"];
+        [myRobot run:^NSString *{
+            return @"up";
+        }];
     }
     return 0;
 }

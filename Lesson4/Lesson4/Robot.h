@@ -11,14 +11,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Robot : NSObject
 
-typedef void(^IntToVoid)(NSString*);
+typedef NSString*(^IntToVoid)(void);
 
 @property (nonatomic) NSInteger x;
 @property (nonatomic) NSInteger y;
 @property (nonatomic,nullable,copy) IntToVoid block;
 
 -(instancetype) init;
--(void) run: (IntToVoid) block andDirection: (NSString*) value;
+-(void) run: (IntToVoid) block;
 
 
 @end

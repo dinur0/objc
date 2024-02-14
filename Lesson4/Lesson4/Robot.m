@@ -9,10 +9,6 @@
 
 @implementation Robot
 
-- (void)run:(nonnull IntToVoid)block andDirection:(nonnull NSString *)value {
-    NSLog(@"%li,%li",self.x,self.y);
-}
-
 - (instancetype)init {
     self = [super init];
     if (self){
@@ -20,6 +16,22 @@
         self.y = 0;
     }
     return self;
+}
+
+- (void)run:(IntToVoid)block {
+    if (block == @"up") {
+        self.y += 1;
+    }
+    if (block==@"down") {
+        self.y -= 1;
+    }
+    if (block==@"right") {
+        self.x += 1;
+    }
+    if (block==@"up") {
+        self.x -= 1;
+    }
+    NSLog(@"%li,%li",self.x,self.y);
 }
 
 @end
