@@ -18,7 +18,9 @@
     return self;
 }
 
-- (void)run:(IntToVoid)block {
+- (void)run:(VoidToStr)block {
+    __block NSString *temp;
+    block(temp);
     if (block == @"up") {
         self.y += 1;
     }
