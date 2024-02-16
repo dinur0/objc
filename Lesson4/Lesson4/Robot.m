@@ -31,7 +31,7 @@
     if ([block() isEqualToString:@"up"]) {
         self.x -= 1;
     }
-    NSLog(@"%li,%li",self.x,self.y);
+    NSLog(@"Robot stnads in: %li,%li",self.x,self.y);
 }
 
 @end
