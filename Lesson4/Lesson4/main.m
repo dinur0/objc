@@ -14,6 +14,9 @@ int main(int argc, const char * argv[]) {
         [myRobot run:^NSString *{
             return @"up";
         }];
+        [myRobot run:^NSString *{
+            return @"right";
+        }];
     }
     return 0;
 }

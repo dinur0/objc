@@ -19,16 +19,16 @@
 }
 
 - (void)run:(VoidToStr)block {
-    if ([block isEqualToString:@"up"]) {
+    if ([block() isEqualToString:@"up"]) {
         self.y += 1;
     } else
-    if ([block isEqualToString:@"down"]) {
+    if ([block() isEqualToString:@"down"]) {
         self.y -= 1;
     } else
-    if ([block isEqualToString:@"right"]) {
+    if ([block() isEqualToString:@"right"]) {
         self.x += 1;
     } else
-    if ([block isEqualToString:@"up"]) {
+    if ([block() isEqualToString:@"up"]) {
         self.x -= 1;
     }
     NSLog(@"%li,%li",self.x,self.y);
