@@ -12,8 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SecondViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *login;
+
+- (IBAction)performLoadingWithPostRequest:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UITextField *password;
+
+@property (strong, nonatomic) IBOutlet UITextView *textPost;
 @property (nonatomic, strong) Loader *loader;
 
 @end
 
 NS_ASSUME_NONNULL_END
+

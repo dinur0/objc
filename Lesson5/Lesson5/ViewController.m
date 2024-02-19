@@ -28,7 +28,7 @@
                 NSLog(@"%@", error);
                 return;
             }
-            self->_textGet.text = dict;//Здесь
+            self->_textGet.text = [NSString stringWithFormat:@"my GET request: %@", dict];//Здесь
             NSLog(@"%@", dict);
         });
     }];
