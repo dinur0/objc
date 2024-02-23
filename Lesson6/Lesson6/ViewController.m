@@ -35,12 +35,13 @@
 
 - (IBAction)showRobotToTextView:(UIButton *)sender {
     NSUserDefaults* defaultsSettins = [NSUserDefaults standardUserDefaults];
-    self.robot = [[Robot alloc]initWithName:[NSString stringWithFormat:@"%@", _fieldName.text] x:[_fieldX.text integerValue] y:[_fieldY.text integerValue]];
+    self.robot = [[Robot alloc]initWithName:[NSString stringWithFormat:@"%@", self.fieldName.text] x:[self.fieldX.text integerValue] y:[self.fieldY.text integerValue]];
 //    self.robot = [[Robot alloc]initWithName:@"nn" x:4 y:3];
-    [defaultsSettins setObject:_robot forKey:@"robot"];
+    [defaultsSettins setObject: self.robot forKey:@"robot"];
     Robot *unpackedRobot = [defaultsSettins objectForKey:@"robot"];
-    NSLog(@"%@",unpackedRobot);
-    self->_textViewResult.text = [NSString stringWithFormat:@"%@", unpackedRobot];
+//    NSLog(@"%@",unpackedRobot);
+//        NSLog(@"%@",self.robot);
+    self.textViewResult.text = [NSString stringWithFormat:@"%@", unpackedRobot];
 }
 
 @end
