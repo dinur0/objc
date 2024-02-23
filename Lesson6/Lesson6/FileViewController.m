@@ -16,16 +16,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.robot = [[Robot alloc]initWithName:@"nn" x:4 y:3];
 }
 
-/*
-#pragma mark - Navigation
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    
+//}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)ShowRobotFile:(UIButton *)sender {
+
+    NSFileManager *myFileManager = [NSFileManager defaultManager];
+    NSURL *url = [myFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].firstObject;
+    NSURL *newFolder = [url URLByAppendingPathComponent:@"ПАПКА"];
+    NSURL *newFile = [url URLByAppendingPathComponent:@"robot.txt"];
+    NSData *fileData = [NSKeyedArchiver archivedDataWithRootObject:self.robot];
+    [fileData writeToFile:newFile atomically:YES];
+//    вытаскиваем из фаила
+//    NSObject *obj = [NSKeyedUnarchiver unarchiveObjectWithFile:newFile];
+    self.textViewResult.text = [NSKeyedUnarchiver unarchiveObjectWithFile:newFile];
 }
-*/
-
 @end

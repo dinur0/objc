@@ -18,7 +18,13 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-
+//    NSUserDefaults* defaultsSettins = [NSUserDefaults standardUserDefaults];
+//    self.robot = [[Robot alloc]initWithName:[NSString stringWithFormat:@"%@", self.fieldName.text] x:[self.fieldX.text integerValue] y:[self.fieldY.text integerValue]];
+//    self.robot = [[Robot alloc]initWithName:@"nn" x:4 y:3];
+//    [defaultsSettins setObject:self.robot forKey:@"robot"];
+//    Robot *unpackedRobot = [defaultsSettins objectForKey:@"robot"];
+//    NSLog(@"%@",self.robot);
+//    self.textViewResult.text = [NSString stringWithFormat:@"%@", unpackedRobot];
 //    NSInteger *loginTxt = [NSInteger : @"%@", self->_login.text];
 }
 
