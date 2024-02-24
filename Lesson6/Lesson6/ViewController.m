@@ -16,16 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view.
-//    NSUserDefaults* defaultsSettins = [NSUserDefaults standardUserDefaults];
-//    self.robot = [[Robot alloc]initWithName:[NSString stringWithFormat:@"%@", self.fieldName.text] x:[self.fieldX.text integerValue] y:[self.fieldY.text integerValue]];
-//    self.robot = [[Robot alloc]initWithName:@"nn" x:4 y:3];
-//    [defaultsSettins setObject:self.robot forKey:@"robot"];
-//    Robot *unpackedRobot = [defaultsSettins objectForKey:@"robot"];
-//    NSLog(@"%@",self.robot);
-//    self.textViewResult.text = [NSString stringWithFormat:@"%@", unpackedRobot];
-//    NSInteger *loginTxt = [NSInteger : @"%@", self->_login.text];
 }
 
 //- (void)viewWillAppear:(BOOL)animated{
@@ -42,11 +32,11 @@
 - (IBAction)showRobotToTextView:(UIButton *)sender {
     NSUserDefaults* defaultsSettins = [NSUserDefaults standardUserDefaults];
     self.robot = [[Robot alloc]initWithName:[NSString stringWithFormat:@"%@", self.fieldName.text] x:[self.fieldX.text integerValue] y:[self.fieldY.text integerValue]];
-//    self.robot = [[Robot alloc]initWithName:@"nn" x:4 y:3];
-    [defaultsSettins setObject: self.robot forKey:@"robot"];
-    Robot *unpackedRobot = [defaultsSettins objectForKey:@"robot"];
-//    NSLog(@"%@",unpackedRobot);
-//        NSLog(@"%@",self.robot);
+    NSData *robotData = [NSKeyedArchiver archivedDataWithRootObject:self.robot requiringSecureCoding:NO error:NULL];
+    [defaultsSettins setObject: robotData forKey:@"robot"];
+    
+    NSData *newData = [defaultsSettins objectForKey:@"robot"];
+    Robot *unpackedRobot = [NSKeyedUnarchiver unarchiveObjectWithData:newData];
     self.textViewResult.text = [NSString stringWithFormat:@"%@", unpackedRobot];
 }
 

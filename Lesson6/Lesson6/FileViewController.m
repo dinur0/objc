@@ -15,25 +15,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.robot = [[Robot alloc]initWithName:@"nn" x:4 y:3];
 }
 
-//- (void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    
-//}
-
 - (IBAction)ShowRobotFile:(UIButton *)sender {
-
-    NSFileManager *myFileManager = [NSFileManager defaultManager];
-    NSURL *url = [myFileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].firstObject;
-    NSURL *newFolder = [url URLByAppendingPathComponent:@"ПАПКА"];
-    NSURL *newFile = [url URLByAppendingPathComponent:@"robot.txt"];
+    self.robot = [[Robot alloc]initWithName:@"nn" x:4 y:3];
     NSData *fileData = [NSKeyedArchiver archivedDataWithRootObject:self.robot];
-    [fileData writeToFile:newFile atomically:YES];
-//    вытаскиваем из фаила
-//    NSObject *obj = [NSKeyedUnarchiver unarchiveObjectWithFile:newFile];
-    self.textViewResult.text = [NSKeyedUnarchiver unarchiveObjectWithFile:newFile];
+    [fileData writeToFile:myDirectory() atomically:YES];
+    Robot *newRobot = [NSKeyedUnarchiver unarchiveObjectWithFile:myDirectory()];
+    self.textViewResult.text = [NSString stringWithFormat:@"%@", newRobot];
+}
+
+NSString* myDirectory(void) {
+    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)firstObject]stringByAppendingString:@"/robot.txt"];
 }
 @end

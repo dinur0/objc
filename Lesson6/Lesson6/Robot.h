@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Robot : NSObject
+@interface Robot : NSObject <NSCoding>
 
 @property (nonatomic) NSInteger x;
 @property (nonatomic) NSInteger y;
